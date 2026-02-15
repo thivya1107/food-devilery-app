@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Food Explorer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>🍽 Food Explorer</h1>
+
+  <div class="top-controls">
+    <input type="text" placeholder="Search for a dish..." id="searchInput">
+
+    <select onchange="filterByType(this.value)">
+      <option value="all">All</option>
+      <option value="breakfast">🍳 Breakfast</option>
+      <option value="lunch">🍛 Lunch</option>
+      <option value="dinner">🍽 Dinner</option>
+      <option value="snacks">🍟 Snacks</option>
+    </select>
+
+    <select onchange="sortByPrice(this.value)">
+      <option value="">Sort Price</option>
+      <option value="low">⬇ Low → High</option>
+      <option value="high">⬆ High → Low</option>
+    </select>
+  </div>
+</header>
+
+
+<!-- Filters -->
+<div class="filters">
+  <h3>Choose Your Budget</h3>
+  <button onclick="filterByBudget(100)">Under ₹100</button>
+  <button onclick="filterByBudget(200)">Under ₹200</button>
+  <button onclick="filterByBudget(300)">Under ₹300</button>
+
+  <h3>Choose Your Mood</h3>
+  <button onclick="filterByMood('happy')">😊 Happy</button>
+  <button onclick="filterByMood('sad')">😔 Sad</button>
+  <button onclick="filterByMood('lazy')">😴 Lazy</button>
+</div>
+
+<section class="food-container">
+  <div class="card" data-price="199" data-mood="happy lazy">
+    <img src="https://t3.ftcdn.net/jpg/07/91/20/84/360_F_791208487_FvPUDOvneQYY13BMM4GfG1L55NkdoiQF.jpg">
+    <h3>Chicken Biryani</h3>
+    <p>₹199</p>
+    <button onclick="addToCart('Chicken Biryani',199)">Add to Cart</button>
+  </div>
+
+  <div class="card" data-price="99" data-mood="happy">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7Pjr1n58soEMf4a-GmKR5tFwK6Uzi7nuTXIRmWQkACA&s&ec=121507568">
+    <h3>Masala Dosa</h3>
+    <p>₹99</p>
+    <button onclick="addToCart('Masala Dosa',99)">Add to Cart</button>
+  </div>
+
+  <div class="card" data-price="149" data-mood="sad lazy">
+    <img src="https://i0.wp.com/aartimadan.com/wp-content/uploads/2023/11/Paneer-Butter-Masala-Restaurant-Style.jpg?fit=800%2C449&ssl=1">
+    <h3>Paneer Butter Masala</h3>
+    <p>₹149</p>
+    <button onclick="addToCart('Paneer Butter Masala',149)">Add to Cart</button>
+  </div>
+  <div class="card" data-price="60" data-mood="happy">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4uf-OJfGm5_DNAef5neiJUh6IcrIlJyFlu2URbFGkHg&s&ec=121507568" alt="Gulab Jamun">
+  <h3>Gulab Jamun</h3>
+  <p>₹60</p>
+  <button onclick="addToCart('Gulab Jamun',60)">Add to Cart</button>
+</div>
+<div class="card" data-price="120" data-mood="sad lazy">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1WCCt930CjTpc2BHiLv6b1chFEKP8T4TdnvT_LOgsVA&s&ec=121507568" alt="Chocolate Brownie">
+  <h3>Chocolate Brownie</h3>
+  <p>₹120</p>
+  <button onclick="addToCart('Chocolate Brownie',120)">Add to Cart</button>
+</div>
+<div class="card" data-price="80" data-mood="happy lazy">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIwR9y_qo7rEEbsKGQwAzSYDbPWXyhuNYpiMOzwdODxw&s&ec=121507568" alt="Vanilla Ice Cream">
+  <h3>Vanilla Ice Cream</h3>
+  <p>₹80</p>
+  <button onclick="addToCart('Vanilla Ice Cream',80)">Add to Cart</button>
+</div>
+<div class="card" data-price="199" data-mood="happy">
+  <img src="https://static.vecteezy.com/system/resources/thumbnails/047/734/497/small/enjoy-the-delicious-flavors-of-a-vegetarian-pizza-with-fresh-tomatoes-onions-and-green-peas-on-a-crispy-crust-from-a-nearby-pizzeria-add-basil-herbs-parsley-and-spices-for-an-extra-kick-photo.jpg" alt="Veg Pizza">
+  <h3>Veg Pizza</h3>
+  <p>₹199</p>
+  <button onclick="addToCart('Veg Pizza',199)">Add to Cart</button>
+</div>
+</section>
+
+<section class="cart">
+  <h2>🛒 Cart</h2>
+  <ul id="cartItems"></ul>
+  <h3>Total: ₹<span id="total">0</span></h3>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
